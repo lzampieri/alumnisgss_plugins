@@ -5,4 +5,5 @@ module.exports = {
         './blocks/**/renderer.php',
         './src/app.css' // To force compilation of all explicitly defined stuff
     ],
+    theme: require( './theme')
 };

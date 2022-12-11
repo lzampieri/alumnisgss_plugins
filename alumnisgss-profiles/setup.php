@@ -72,8 +72,8 @@ function asgssp_load_alpineJS() {
 add_action( 'admin_head', 'asgssp_load_alpineJS' );
 
 // Css and Js
-function asgssp_add_plugin_scripts() {
-    wp_enqueue_style( 'app', plugin_dir_url( __FILE__ ) . '/assets/app.css' );
-    wp_enqueue_script( 'app', plugin_dir_url( __FILE__ ) . '/assets/app.js' );
+function asgssp_add_scripts() {
+    wp_enqueue_style( 'asgssp', plugin_dir_url( __FILE__ ) . '/assets/app.css' );
+    wp_enqueue_script( 'asgssp', plugin_dir_url( __FILE__ ) . '/assets/app.js' );
 }
-add_action( 'wp_enqueue_scripts', 'asgssp_add_plugin_scripts' );
+add_action( 'wp_enqueue_scripts', 'asgssp_add_scripts' );

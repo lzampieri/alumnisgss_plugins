@@ -1,6 +1,6 @@
 module.exports = {
     entry: {
-        'directors_tiles/block': ['./directors_tiles/block.jsx'],
+        'directors-tiles/block': ['./directors-tiles/block.jsx'],
     },
     output: {
         path: __dirname,
