@@ -1,5 +1,6 @@
 <?php
 
+// Register directors post type
 function asgssp_register_director_type()
 {
 
@@ -35,5 +36,15 @@ function asgssp_register_director_type()
     register_post_type( 'asgssp_director', $args );
 
 }
-
 add_action('init', 'asgssp_register_director_type');
+
+// Load AlpineJS
+function asgssp_load_alpineJS() {
+    wp_enqueue_script(
+        'AlpineJS',
+        "https://unpkg.com/alpinejs@3.9.0/dist/cdn.min.js"
+        );
+
+};
+add_action( 'admin_head', 'asgssp_load_alpineJS' );
+
