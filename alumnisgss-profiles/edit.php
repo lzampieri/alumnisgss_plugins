@@ -156,7 +156,7 @@ function asgssp_metabox_image_draw($post)
 
     ?>
     <div>
-        <img src="" id="asgssp_metabox_image_src" style="max-width: 10rem;" />
+        <img src="<?php echo $prevURL; ?>" id="asgssp_metabox_image_src" style="max-width: 10rem;" />
         <input type="hidden" id="asgssp_metabox_image" name="asgssp_metabox_image" value="<?php echo $prevValue; ?>" />
         <button type="button" onclick="asgssp_metabox_image_openframe(event)">Seleziona immagine</button>
         <a id="asgssp_metabox_image_delete" onclick="asgssp_metabox_image_delete(event)" href="#" style="color: red; visibility: <?php echo $prevValue ? 'visible' : 'hidden'; ?>">Cancella</a>
@@ -185,7 +185,7 @@ function asgssp_metabox_image_save($post_id)
 
     // Save
     $new_image = isset($_POST['asgssp_metabox_image']) ? intval($_POST['asgssp_metabox_image']) : '';
-    update_post_meta($post_id, 'asgssp_metabox_image', $new_image);
+    update_post_meta($post_id, 'asgssp_image', $new_image);
 }
 add_action('save_post', 'asgssp_metabox_image_save');
 

@@ -38,6 +38,29 @@ function asgssp_register_director_type()
 }
 add_action('init', 'asgssp_register_director_type');
 
+// Register meta on list
+add_filter('manage_asgssp_director_posts_columns', function($columns) {
+    unset( $columns );
+    $columns['image'] = 'Immagine';
+    $columns['title'] = 'Nome';
+    $columns['role'] = 'Ruolo';
+    return $columns;
+});
+add_action('manage_asgssp_director_posts_custom_column',  function($column_key, $post_id) {
+	if ($column_key == 'role') {
+		$role = get_post_meta($post_id, 'asgssp_role', true);
+        echo $role;
+	}
+    if ($column_key == 'image') {
+        $img = get_post_meta($post_id, 'asgssp_image', true);
+        $url = $img;
+        if( $img ) {
+            $url = wp_get_attachment_image_url( $img );
+            echo "<img src=\"" . $url . "\" style=\"max-width: 8rem;\" />";
+        }
+    }
+}, 10, 2);
+
 // Load AlpineJS
 function asgssp_load_alpineJS() {
     wp_enqueue_script(
