@@ -17,7 +17,12 @@ function asgssp_directory_tiles_renderer( $attr, $content ) {
 
     foreach( $directors as $director ) {
         $director->role = get_post_meta( $director->ID, 'asgssp_role', true );
-        $director->sort_id = ( array_key_exists( $director->role, $roles ) ? $roles[ $director->role ] : 'f' ) . $director->post_title;
+        $director->sort_id = "";
+        foreach( $roles as $role => $prefix ) {
+            if( strpos( strtolower( $director->role), strtolower( $role ) ) !== false )
+                $director->sort_id .= $prefix;
+        }
+        $director->sort_id .= $director->post_title;
     }
 
     usort($directors, function($a, $b) {return strcmp($a->sort_id, $b->sort_id);});
