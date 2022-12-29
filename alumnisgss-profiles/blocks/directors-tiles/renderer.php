@@ -8,11 +8,10 @@ function asgssp_directory_tiles_renderer( $attr, $content ) {
     ));
 
     $roles = array(
+        "Vicepresidente" =>     'b',
         "Presidente" => 'a',
-        "Vicepresidente" => 'b',
         "Segretario" => 'c',
-        "Tesoriere" => 'd',
-        "Consigliere" => 'e'
+        "Tesoriere" => 'd'
     );
 
     foreach( $directors as $director ) {
@@ -22,7 +21,7 @@ function asgssp_directory_tiles_renderer( $attr, $content ) {
             if( strpos( strtolower( $director->role), strtolower( $role ) ) !== false )
                 $director->sort_id .= $prefix;
         }
-        $director->sort_id .= $director->post_title;
+        $director->sort_id .= 'f' . strtolower( $director->post_title );
     }
 
     usort($directors, function($a, $b) {return strcmp($a->sort_id, $b->sort_id);});
