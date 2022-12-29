@@ -10,4 +10,4 @@
 
 require( __DIR__ . '/setup.php');
 require( __DIR__ . '/edit.php');
-// require( __DIR__ . '/blocks/load_blocks.php');
+require( __DIR__ . '/blocks/load_blocks.php');

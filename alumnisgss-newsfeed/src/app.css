@@ -1,0 +1,30 @@
+.asgssn_container {
+    @apply flex flex-col items-center justify-center px-4 md:px-16 py-8 my-8 md:py-16 md:my-16 gap-2;
+    @apply bg-dark-bg text-dark-tx border-dark-tx;
+}
+.asgssn_titles {
+    @apply flex flex-row items-center justify-center w-full;
+    @apply bg-dark-bg text-dark-tx border-dark-tx;
+}
+.asgssn_bullets {
+    @apply flex flex-row items-center justify-center w-full gap-2;
+    @apply bg-dark-bg text-dark-tx border-dark-tx;
+}
+
+.asgssn_newsfeed {
+    @apply w-full md:w-1/2 min-h-[10rem];
+    @apply px-1 py-8 md:px-8;
+    @apply border-4 rounded border-details-bg text-details-tx text-center;
+    @apply flex flex-col justify-center items-center
+}
+
+.bullet-empty {
+    @apply w-4 h-4 border border-details-bg bg-transparent rounded-full cursor-pointer;
+}
+.bullet-full {
+    @apply w-4 h-4 border border-details-bg bg-details-bg rounded-full cursor-pointer;
+}
+
+.asgssn_title {
+    @apply font-bold text-2xl pb-4
+}
