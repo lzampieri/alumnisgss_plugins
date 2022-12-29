@@ -5,7 +5,7 @@ function asgssn_add_metaboxes()
 {
     add_meta_box(
         'asgssn_timespan',
-        'Metti in evidenza',
+        'Periodo di evidenza',
         'asgssn_metabox_timespan_draw',
         'post',
         'side'
@@ -25,7 +25,7 @@ function asgssn_metabox_timespan_draw($post)
 
 ?>
     <div>
-        <b>Periodo di evidenza:</b><br />
+        <small>Durante questo periodo, questo articolo verrà visualizzato all'interno del blocco <i>in evidenza</i>, tipicamente inserito nella homepage del sito.</i></small><br/>
         Da:<br />
         <input type="date" id="asgssn_metabox_timespan_start" name="asgssn_metabox_timespan_start" style="width: full" value="<?php echo $prevStart; ?>"/><br />
         A:<br />
