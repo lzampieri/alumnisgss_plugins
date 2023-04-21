@@ -19,6 +19,7 @@ function asgssn_metabox_timespan_draw($post)
 {
     $prevStart = get_post_meta($post->ID, 'asgssn_timespan_start', true);
     $prevEnd = get_post_meta($post->ID, 'asgssn_timespan_end', true);
+    $prevTitle = get_post_meta($post->ID, 'asgssn_newsfeed_title', true);
 
     // Add nonce
     wp_nonce_field('asgssn_metabox', 'asgssn_metabox_timespan_nonce');
@@ -31,7 +32,9 @@ function asgssn_metabox_timespan_draw($post)
         A:<br />
         <input type="date" id="asgssn_metabox_timespan_end" name="asgssn_metabox_timespan_end" style="width: full" value="<?php echo $prevEnd; ?>" /><br />
         <i>inclusi</i><br />
-        <a onClick="jQuery('#asgssn_metabox_timespan_start').val(''); jQuery('#asgssn_metabox_timespan_end').val('');" href="#">Reset</a>
+        con il titolo:
+        <input type="text" id="asgssn_newsfeed_title" name="asgssn_newsfeed_title" style="width: full" value="<?php echo $prevTitle; ?>" /><br />
+        <a onClick="jQuery('#asgssn_metabox_timespan_start').val(''); jQuery('#asgssn_metabox_timespan_end').val(''); jQuery('#asgssn_newsfeed_title').val('');" href="#">Reset</a>
     </div>
 <?php
 }
@@ -58,7 +61,9 @@ function asgssn_metabox_timespan_save($post_id)
     // Save
     $newStart = (isset($_POST['asgssn_metabox_timespan_start']) ? sanitize_text_field($_POST['asgssn_metabox_timespan_start']) : '');
     $newEnd = (isset($_POST['asgssn_metabox_timespan_end']) ? sanitize_text_field($_POST['asgssn_metabox_timespan_end']) : '');
+    $newTitle = (isset($_POST['asgssn_newsfeed_title']) ? sanitize_text_field($_POST['asgssn_newsfeed_title']) : '');
     update_post_meta($post_id, 'asgssn_timespan_start', $newStart);
     update_post_meta($post_id, 'asgssn_timespan_end', $newEnd);
+    update_post_meta($post_id, 'asgssn_newsfeed_title', $newTitle);
 }
 add_action('save_post', 'asgssn_metabox_timespan_save');

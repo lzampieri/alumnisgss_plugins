@@ -3,7 +3,7 @@
    Plugin Name: Alumni SGSS newsfeed
    Plugin URI: N/A
    description: A plugin to temporary put posts in newsfeed
-   Version: 1.0
+   Version: 1.1
    Author: L. Zampieri
    License: MIT
    */

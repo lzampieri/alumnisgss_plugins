@@ -15,6 +15,9 @@ function asgssn_newsfeed_renderer( $attr, $content ) {
     foreach( $posts as $post ) {
         $start = strtotime( get_post_meta($post->ID, 'asgssn_timespan_start', true) );
         $end = strtotime( get_post_meta($post->ID, 'asgssn_timespan_end', true) . " + 1 day" );
+        $title = get_post_meta($post->ID, 'asgssn_newsfeed_title', true);
+        if( !$title )
+            $title = $post->post_title;
         
         if( !$start )
             continue;
@@ -28,7 +31,7 @@ function asgssn_newsfeed_renderer( $attr, $content ) {
             continue;
 
         $output .= '<div class="asgssn_newsfeed" x-show="shown == ' . $count . '" x-transition x-transition.scale.origin.right x-transition.duration.500ms>';
-        $output .= '<span class="asgssn_title">' . $post->post_title . '</span>';
+        $output .= '<span class="asgssn_title">' . $title . '</span>';
         $output .= '<a class="abutton" href="' . get_permalink( $post ) . '">Scopri di più</a>';
         $output .= "</div>";
         $count += 1;
