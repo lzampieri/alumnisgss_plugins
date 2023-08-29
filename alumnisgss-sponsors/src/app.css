@@ -1,0 +1,22 @@
+/* Not able to make tailwind autodetect classes */
+/* Everything defined here */
+
+.asgsss-item {
+    @apply w-full flex flex-row items-center gap-4
+}
+
+.asgsss-thumbnail {
+    @apply max-h-[50px] max-w-[50px]
+}
+
+.asgsss-input {
+    @apply grow border rounded-lg px-2 text-body-tx
+}
+
+.asgsss-gallery {
+    @apply w-full grid grid-cols-1 md:grid-cols-2 gap-4 grid-flow-dense
+}
+
+.asgsss-image {
+    @apply w-full md:w-[1/3]
+}
